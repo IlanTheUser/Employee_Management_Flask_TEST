@@ -11,7 +11,7 @@ resource "aws_instance" "mariadb" {
   user_data = <<-EOF
               #!/bin/bash
               sudo yum update -y
-              sudo yum install -y mariadb-server
+              sudo yum install -y mariadb105-server 
               sudo systemctl start mariadb
               sudo systemctl enable mariadb
               sudo mysql -e "CREATE DATABASE IF NOT EXISTS employee_management;"
