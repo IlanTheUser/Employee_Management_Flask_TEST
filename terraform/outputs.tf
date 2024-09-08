@@ -24,6 +24,6 @@ output "deployment_timestamp" {
 }
 
 output "db_host" {
-  description = "Host of the database"
+  description = "Host of the database server"
   value = aws_instance.mariadb.private_ip
 }
