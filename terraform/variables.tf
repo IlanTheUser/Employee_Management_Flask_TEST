@@ -43,3 +43,29 @@ variable "app_version" {
 #   description = "Name of the SSH key pair"
 #   type        = string
 # }
+
+
+
+##### DB variables
+
+variable "db_instance_type" {
+  description = "Instance type for the MariaDB server"
+  type        = string
+  default     = "t2.micro"
+}
+
+variable "db_name" {
+  description = "Name of the database"
+  type        = string
+  default     = "employee_management"
+}
+
+variable "db_username" {
+  description = "user"
+  type        = string
+}
+
+variable "db_password" {
+  description = "Password"
+  type        = string
+}
