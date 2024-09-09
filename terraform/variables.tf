@@ -63,16 +63,16 @@ variable "db_name" {
 variable "db_username" {
   description = "username for the database user"
   type        = string
-  default = "user"
+  default     = "user"
 }
 
 variable "db_password" {
   description = "Password for the database user"
   type        = string
-  default = "password"
+  default     = "password"
 }
 
-variable "elastic_ip_id" {
-  description = "The allocation ID of the Elastic IP to associate with the MariaDB instance"
-  type        = string
-}
+# variable "elastic_ip_id" {
+#   description = "The allocation ID of the Elastic IP to associate with the MariaDB instance"
+#   type        = string
+# }

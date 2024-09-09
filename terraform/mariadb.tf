@@ -1,7 +1,7 @@
 resource "aws_instance" "mariadb" {
-  ami           = var.ami_id
-  instance_type = var.db_instance_type
-  subnet_id     = aws_subnet.main.id
+  ami                    = var.ami_id
+  instance_type          = var.db_instance_type
+  subnet_id              = aws_subnet.main.id
   vpc_security_group_ids = [aws_security_group.db.id]
 
   tags = {
@@ -22,10 +22,10 @@ resource "aws_instance" "mariadb" {
 }
 
 # Add this new resource to associate the Elastic IP
-resource "aws_eip_association" "mariadb_eip_assoc" {
-  instance_id   = aws_instance.mariadb.id
-  allocation_id = var.elastic_ip_id  # You need to define this variable
-}
+# resource "aws_eip_association" "mariadb_eip_assoc" {
+#   instance_id   = aws_instance.mariadb.id
+#   allocation_id = var.elastic_ip_id  # You need to define this variable
+# }
 
 resource "aws_security_group" "db" {
   name        = "${var.project_name}-db-sg"
@@ -39,7 +39,7 @@ resource "aws_security_group" "db" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-    ingress {
+  ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
