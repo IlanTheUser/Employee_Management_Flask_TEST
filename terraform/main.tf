@@ -66,6 +66,14 @@ resource "aws_security_group" "main" {
   }
 
   ingress {
+  description = "talk to mysql"
+  from_port   = 3306
+  to_port     = 3306
+  protocol    = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
+}
+
+  ingress {
     description = "Flask from anywhere"
     from_port   = 5000
     to_port     = 5000
