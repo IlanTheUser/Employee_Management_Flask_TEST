@@ -69,5 +69,5 @@ variable "db_username" {
 variable "db_password" {
   description = "Password for the database user"
   type        = string
-  default = "Password"
+  default = "password"
 }
