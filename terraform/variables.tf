@@ -72,7 +72,7 @@ variable "db_password" {
   default     = "password"
 }
 
-# variable "elastic_ip_id" {
-#   description = "The allocation ID of the Elastic IP to associate with the MariaDB instance"
-#   type        = string
-# }
+variable "elastic_ip_id" {
+  description = "The allocation ID of the Elastic IP to associate with the MariaDB instance"
+  type        = string
+}
