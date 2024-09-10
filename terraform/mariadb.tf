@@ -1,7 +1,7 @@
 resource "aws_instance" "mariadb" {
   ami                    = var.ami_id
   instance_type          = var.db_instance_type
-  subnet_id              = aws_subnet.main.id
+  subnet_id              = aws_subnet.main_1.id
   vpc_security_group_ids = [aws_security_group.db.id]
 
   tags = {
