@@ -4,6 +4,12 @@ on:
 
   repository_dispatch:
     types: [docker-update]
+  push:
+    paths:
+      - 'terraform/**'
+  pull_request:
+    paths:
+      - 'terraform/**'
 
 jobs:
   terraform:

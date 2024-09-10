@@ -16,4 +16,5 @@ def init_db():
         #     print("Admin user created.")
 
 if __name__ == '__main__':
+    init_db()
     print("Database initialization script loaded. Use init_db() function to initialize the database.")
