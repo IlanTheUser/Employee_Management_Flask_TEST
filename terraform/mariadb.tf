@@ -24,7 +24,7 @@ resource "aws_instance" "mariadb" {
 # Add this new resource to associate the Elastic IP
 resource "aws_eip_association" "mariadb_eip_assoc" {
   instance_id   = aws_instance.mariadb.id
-  allocation_id = var.elastic_ip_id  # You need to define this variable
+  allocation_id = var.elastic_ip_id # You need to define this variable
 }
 
 resource "aws_security_group" "db" {
