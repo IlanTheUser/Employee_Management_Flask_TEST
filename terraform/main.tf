@@ -1,11 +1,11 @@
 # Uncomment if want to use localy
-# terraform {
-#   backend "s3" {
-#     bucket = "ilan-terraform-bucket"
-#     key    = "terraform/python-master-project.tfstate"
-#     region = "us-east-1" # replace with your preferred region
-#   }
-# }
+terraform {
+  backend "s3" {
+    bucket = "ilan-terraform-bucket"
+    key    = "terraform/python-master-project.tfstate"
+    region = "us-east-1" # replace with your preferred region
+  }
+}
 
 resource "aws_vpc" "main" {
   cidr_block           = var.vpc_cidr
