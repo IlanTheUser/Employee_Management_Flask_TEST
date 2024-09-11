@@ -172,7 +172,7 @@ resource "aws_security_group" "main" {
 #     create_before_destroy = true
 #   }
 # }
-
+############################# Load Balancer ###############################
 # Update the ALB to use both subnets
 resource "aws_lb" "main" {
   name               = "${var.project_name}-alb"

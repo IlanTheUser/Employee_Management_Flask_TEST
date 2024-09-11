@@ -47,9 +47,19 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
+      - name: Terraform fmt
+        run: terraform fmt
+
       - name: Terraform Plan
         run: terraform plan -out=tfplan
 
-      - name: Terraform Apply
+      - name: Application update step 1
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'repository_dispatch')
-        run: terraform apply -auto-approve tfplan
+        run: terraform destroy -target=aws_launch_template.main -target=aws_autoscaling_group.main -target=aws_autoscaling_policy.main -target=aws_lb_listener.main -target=aws_lb_target_group.main -target=aws_lb.main -auto-approve
+
+      - name: Application update step 2
+        run: terraform apply -target=aws_launch_template.main -target=aws_autoscaling_group.main -target=aws_autoscaling_policy.main -target=aws_lb_listener.main -target=aws_lb_target_group.main -target=aws_lb.main -auto-approve -out=tfplan      
+      
+      # - name: Terraform Apply
+      #   if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'repository_dispatch')
+      #   run: terraform apply -auto-approve tfplan
